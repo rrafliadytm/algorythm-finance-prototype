@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-roboto), 'Roboto', 'Arial', sans-serif;
+  --font-mono: var(--font-roboto-mono), 'Roboto Mono', monospace;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.4);
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 1rem;
+
+  /* Deep Midnight Purple family */
+  --background: #120e2e;
+  --foreground: #f3f1ff;
+
+  --card: #1b1544;
+  --card-foreground: #f3f1ff;
+
+  --popover: #1b1544;
+  --popover-foreground: #f3f1ff;
+
+  /* Neon Cyber Green */
+  --primary: #00ff66;
+  --primary-foreground: #05230f;
+
+  --secondary: #251d5c;
+  --secondary-foreground: #d6d0ff;
+
+  --muted: #221a52;
+  --muted-foreground: #a49dd6;
+
+  --accent: #00ff66;
+  --accent-foreground: #05230f;
+
+  /* Coral Red danger */
+  --destructive: #ff4d4d;
+  --destructive-foreground: #2a0808;
+
+  /* Yellow warning */
+  --warning: #ffc53d;
+  --warning-foreground: #2a1e00;
+
+  /* Success = neon green */
+  --success: #00ff66;
+  --success-foreground: #05230f;
+
+  --border: color-mix(in oklch, #ffffff 10%, transparent);
+  --input: color-mix(in oklch, #ffffff 14%, transparent);
+  --ring: #00ff66;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .glow-green {
+    box-shadow: 0 0 20px -2px color-mix(in oklch, #00ff66 60%, transparent);
+  }
+  .glow-green-strong {
+    box-shadow: 0 0 34px -2px color-mix(in oklch, #00ff66 75%, transparent);
+  }
+  .glow-red {
+    box-shadow: 0 0 20px -2px color-mix(in oklch, #ff4d4d 55%, transparent);
+  }
+  .text-glow-green {
+    text-shadow: 0 0 16px color-mix(in oklch, #00ff66 70%, transparent);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes coin-fall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(420px) rotate(360deg);
+    opacity: 0;
+  }
+}
+.animate-coin-fall {
+  animation: coin-fall linear infinite;
+}

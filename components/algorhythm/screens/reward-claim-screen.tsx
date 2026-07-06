@@ -11,7 +11,7 @@ export function RewardClaimScreen({ nav }: { nav: (id: ScreenId) => void }) {
       Array.from({ length: 18 }).map((_, i) => ({
         left: Math.random() * 100,
         delay: Math.random() * 0,
-        duration: 2.5 + Math.random() * 2,
+        duration: 1.5 + Math.random() * 2,
         size: 10 + Math.random() * 14,
       })),
     [],
